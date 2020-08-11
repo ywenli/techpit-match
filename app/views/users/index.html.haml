@@ -8,7 +8,7 @@
       - @users.each do |user|
         %li{"data-user_id" => "#{user.id}"}
           .userName= user.name
-          = image_tag user.img_name
+          = image_tag user.img_name.url unless user.img_name.nil?
           .like
           .dislike
     .noUser 近くにお相手がいません。
