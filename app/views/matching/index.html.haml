@@ -12,6 +12,6 @@
         .matchingList
           - @match_users.each do |user|
             .matchingPerson
-              .matchingPerson_img= image_tag user.img_name
+              .matchingPerson_img= image_tag user.img_name.url
               .matchingPerson_name= user.name
 
