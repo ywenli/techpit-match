@@ -1,0 +1,17 @@
+.usershowPage
+  .container
+    %header.header
+      %p.header_logo
+        = link_to image_tag("techpit-march-icon.png")
+    .userInfo
+      .userInfo_img
+        // :thumb アップロードした画像ファイルをサムネイルの大きさにトリミングして表示させる
+        = image_tag @user.img_name.url(:thumb)
+      .userInfo_name= @user.name
+      .userInfo_selfIntroduction= @user.self_introduction
+    - if current_user.id == @user.id
+      .userAction
+        .userAction_edit.userAction_common
+          = link_to(content_tag(:i, "", class: "fas fa-cog fa-2x"), destroy_user_session_path, method: :delete)
+          %span
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete
