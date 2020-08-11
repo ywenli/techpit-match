@@ -14,4 +14,7 @@
             .matchingPerson
               .matchingPerson_img= image_tag user.img_name.url
               .matchingPerson_name= user.name
+              = form_tag :chat_index, method: :post do
+                %input{:name => "user_id", :type => "hidden", :value => "#{user.id}"}
+                = submit_tag "チャットを開く", class: "chatForm_btn"
 
