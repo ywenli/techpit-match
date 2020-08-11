@@ -3,6 +3,7 @@
     %ul
       %li.personIcon= link_to(content_tag(:i, "", class: 'fas fa-2x fa-user'), user_path(current_user.id))
       %li.appIcon= link_to image_tag("techpit-march-icon.png"), action: "index"
+      %li.messageIcon= link_to(content_tag(:i, "", class: 'fas fa-2x fa-comments'), matching_index_path)
   #tinderslide
     %ul
       - @users.each do |user|
