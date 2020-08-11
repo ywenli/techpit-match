@@ -1,10 +1,10 @@
 class ChatRoomChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "chat_room_#{params:[:room_id]}"
+    stream_for "chat_room_#{params[:room_id]}"
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
+    # Any clkanup needed when channel is unsubscribed
   end
 
   def speak(data)
@@ -13,9 +13,7 @@ class ChatRoomChannel < ApplicationCable::Channel
   end
 
   private
-
     def render_message(message)
       ApplicationController.renderer.render(partial: 'chat_messages/chat_message', locals: { chat_message: message })
     end
-
 end
